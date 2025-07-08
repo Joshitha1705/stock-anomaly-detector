@@ -8,7 +8,6 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Store results for display
 results = []
 
 def process_stock(ticker):
@@ -49,7 +48,7 @@ def index():
         ticker = request.form.get("ticker")
         if ticker:
             result = process_stock(ticker)
-            # Keep only the latest result
+           
             results = [result]
         else:
             results = [{"stock": None, "status": "error", "message": "Please enter a valid stock ticker"}]

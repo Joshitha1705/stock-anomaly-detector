@@ -12,7 +12,7 @@ def clean_stock_data(data):
         return None
     print(f"[Debug] Raw data shape: {data.shape}")
     data = data.ffill()  
-    data["Moving_Avg"] = data["Close"].rolling(window=10).mean()  # for calculating the anomalies
-    data = data.dropna()  # for dropping the rows with the null values
+    data["Moving_Avg"] = data["Close"].rolling(window=10).mean()  
+    data = data.dropna()  
     print(f"[Debug] Cleaned data shape: {data.shape}")
     return data
