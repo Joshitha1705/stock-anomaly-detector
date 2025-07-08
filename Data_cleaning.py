@@ -1,6 +1,4 @@
-# data_cleaner.py
-# Custom module to clean and preprocess stock data
-
+# Data_cleaning.py
 import pandas as pd
 
 def clean_stock_data(data):
@@ -12,7 +10,9 @@ def clean_stock_data(data):
     if data is None or data.empty:
         print("[Error] Invalid or empty data")
         return None
-    data = data.fillna(method="ffill") #removing the missing values
-    data["Moving_Avg"] = data["Close"].rolling(window=10).mean() # for calculating the anomalies
-    data = data.dropna() # for dropping the rows with the null values
+    print(f"[Debug] Raw data shape: {data.shape}")
+    data = data.ffill()  
+    data["Moving_Avg"] = data["Close"].rolling(window=10).mean()  # for calculating the anomalies
+    data = data.dropna()  # for dropping the rows with the null values
+    print(f"[Debug] Cleaned data shape: {data.shape}")
     return data
