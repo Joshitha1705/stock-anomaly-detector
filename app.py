@@ -26,8 +26,7 @@ def process_stock(ticker):
     cleaned_data = clean_stock_data(raw_data)
     if cleaned_data is None:
         return {"stock": ticker, "status": "error", "message": "No data available"}
-    anomalies = find_anomalies(cleaned_data, threshold=0.02)  # 2% threshold
-    generate_alert(ticker, anomalies)  # Save to CSV
+    anomalies = find_anomalies(cleaned_data, threshold=0.05) 
     if anomalies.empty:
         return {"stock": ticker, "status": "no_anomalies", "message": "No anomalies found"}
     anomalies_list = [

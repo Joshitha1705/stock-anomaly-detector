@@ -22,7 +22,7 @@ def run_anomaly_detector():
             print(f"[ERROR] Skipping {stock} due to data issues")
             continue
 
-        anomalies = find_anomalies(cleaned_data, threshold=0.02)  # 2% deviation
+        anomalies = find_anomalies(cleaned_data, threshold=0.05)
     
         generate_alert(stock, anomalies)
 

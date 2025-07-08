@@ -3,12 +3,12 @@
 
 import pandas as pd
 
-def find_anomalies(data, threshold=0.02):  # Changed to 2%
+def find_anomalies(data, threshold=0.05):  # Changed to 2%
     """
     Identify anomalies based on percentage deviation from moving average.
     Args:
         data (pandas.DataFrame): Preprocessed data with Close and Moving_Avg.
-        threshold (float): Deviation threshold (e.g., 0.02 = 2%).
+        threshold (float): Deviation threshold (e.g., 0.05 = 5%).
     Returns:
         pandas.DataFrame: Anomalies with Close and Deviation columns.
     """

@@ -1,16 +1,30 @@
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
+    background-image: url('./background1.png');
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100vh;
 }
+
 .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
+    width: 500px;
+    padding: 25px;
+    height:auto;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    transform: translateY(-50%);
+    
 }
 h1 {
     text-align: center;
