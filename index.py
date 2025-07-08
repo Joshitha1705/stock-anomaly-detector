@@ -10,20 +10,20 @@ def run_anomaly_detector():
     """
     Monitor stocks for unusual price movements and generate alerts.
     """
-    # Stocks to monitor
-    stocks = ["TSLA", "NVDA", "GME", "AMC", "MSTR"]
+
+    stocks = ["TSLA", "MSFT", "GME", "AMC", "MSTR"]
     for stock in stocks:
         print(f"\n[Info] Analyzing {stock}...")
-        # Fetch data
-        raw_data = get_stock_prices(stock, time_frame="5d", frequency="1m")
-        # Clean and preprocess
+
+        raw_data = get_stock_prices(stock, time_frame="2d", frequency="1m")
+  
         cleaned_data = clean_stock_data(raw_data)
         if cleaned_data is None:
             print(f"[ERROR] Skipping {stock} due to data issues")
             continue
-        # Detect anomalies
+
         anomalies = find_anomalies(cleaned_data, threshold=0.02)  # 2% deviation
-        # Generate alerts
+    
         generate_alert(stock, anomalies)
 
 if __name__ == "__main__":

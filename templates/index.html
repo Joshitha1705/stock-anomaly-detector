@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Anomaly Detector - Techsophy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Anomaly Detector</h1>
+        <p>Enter a stock ticker (e.g., TSLA, AAPL) to detect anomalies</p>
+        <p>Last updated: {{ timestamp }}</p>
+        <form method="POST">
+            <input type="text" name="ticker" placeholder="Enter stock ticker (e.g., TSLA)" required>
+            <button type="submit">Run Anomaly Detection</button>
+        </form>
+        <div class="results">
+            {% for result in results %}
+                <div class="stock-box">
+                    <h2>{{ result.stock or "Invalid Input" }}</h2>
+                    {% if result.status == "error" %}
+                        <p class="error">{{ result.message }}</p>
+                    {% elif result.status == "no_anomalies" %}
+                        <p class="no-anomalies">{{ result.message }}</p>
+                    {% else %}
+                        <h3>Anomalies Detected:</h3>
+                        <table>
+                            <tr>
+                                <th>Time</th>
+                                <th>Price</th>
+                                <th>Deviation</th>
+                            </tr>
+                            {% for anomaly in result.anomalies %}
+                                <tr>
+                                    <td>{{ anomaly.time }}</td>
+                                    <td>{{ anomaly.price }}</td>
+                                    <td>{{ anomaly.deviation }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

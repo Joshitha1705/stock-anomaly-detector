@@ -14,8 +14,7 @@ def find_anomalies(data, threshold=0.02):  # Changed to 2%
     """
     if data is None or data.empty:
         return pd.DataFrame(columns=["Close", "Deviation"])
-    # Calculate percentage deviation from moving average
     data["Deviation"] = abs(data["Close"] - data["Moving_Avg"]) / data["Moving_Avg"]
-    # Flag anomalies where deviation exceeds threshold
+    
     anomalies = data[data["Deviation"] > threshold][["Close", "Deviation"]]
     return anomalies
