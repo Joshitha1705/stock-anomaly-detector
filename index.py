@@ -1,5 +1,3 @@
-# index.py
-# Main script to run the stock price anomaly detector for Techsophy
 
 from stock_fetcher import get_stock_prices
 from Data_cleaning import clean_stock_data

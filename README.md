@@ -16,3 +16,7 @@ A Python application built for Techsophy placement to monitor stock prices in re
    ```bash
    git clone https://github.com/your-username/stock-anomaly-detector.git
    cd stock-anomaly-detector
+
+
+#run
+python app.py

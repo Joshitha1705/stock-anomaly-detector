@@ -1,4 +1,4 @@
-# notifications.py
+
 import pandas as pd
 
 def generate_alert(ticker, anomalies):

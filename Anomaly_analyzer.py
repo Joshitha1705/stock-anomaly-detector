@@ -1,9 +1,7 @@
-# anomaly_analyzer.py
-# Module to detect unusual stock price movements for Techsophy project
 
 import pandas as pd
 
-def find_anomalies(data, threshold=0.05):  # Changed to 2%
+def find_anomalies(data, threshold=0.05): 
     """
     Identify anomalies based on percentage deviation from moving average.
     Args:

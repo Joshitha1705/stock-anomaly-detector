@@ -1,5 +1,3 @@
-# stock_fetcher.py
-# Custom module to fetch stock prices for Techsophy placement project
 
 import yfinance as yf
 import pandas as pd
